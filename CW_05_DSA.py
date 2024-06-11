@@ -124,6 +124,18 @@ def podpisz_plik(file_location):
     
     return L, p,q,g,x,y,file_path,signature,is_valid
 
+
+def zweryfikuj_plik(file_location, key, signature, p, q, g):
+    L = 1024
+    # p, q, g = gen_param(L)  # Generowanie parametrów
+    # x, y = gen_key(p, q, g)  # Generowanie kluczy
+    file_path = file_location  # Ścieżka do pliku do podpisania
+    # signature = sign(p, q, g, x, file_path)  # Podpisanie pliku
+    is_valid = verify(p, q, g, key, file_path, signature)  # Weryfikacja podpisu
+    
+    return L,p,q,g,key,file_path,signature,is_valid
+
+
 if __name__ == "__main__":
     # Przykład użycia:
     L = 1024
